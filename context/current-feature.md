@@ -16,4 +16,4 @@
 
 ## History
 
-<!-- Keep this updated. Earliest to latest -->
+- **2026-03-31** — Initial Next.js and Tailwind CSS v4 setup. Cleaned up boilerplate, added project context files, configured CLAUDE.md. Committed and pushed to `origin/main`.
