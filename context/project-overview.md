@@ -27,15 +27,15 @@
 
 Developers keep their essentials scattered across too many tools:
 
-| What                  | Where it ends up              |
-| --------------------- | ----------------------------- |
-| Code snippets         | VS Code, Notion, Gists       |
-| AI prompts            | Chat histories                |
-| Context files         | Buried in project directories |
-| Useful links          | Browser bookmarks             |
-| Documentation         | Random folders                |
-| Terminal commands      | `.bash_history`, `.txt` files |
-| Project templates     | GitHub Gists                  |
+| What              | Where it ends up              |
+| ----------------- | ----------------------------- |
+| Code snippets     | VS Code, Notion, Gists        |
+| AI prompts        | Chat histories                |
+| Context files     | Buried in project directories |
+| Useful links      | Browser bookmarks             |
+| Documentation     | Random folders                |
+| Terminal commands | `.bash_history`, `.txt` files |
+| Project templates | GitHub Gists                  |
 
 **Result:** context switching, lost knowledge, inconsistent workflows.
 
@@ -45,8 +45,8 @@ Developers keep their essentials scattered across too many tools:
 
 ## Target Users
 
-| Persona                      | Primary Need                                          |
-| ---------------------------- | ----------------------------------------------------- |
+| Persona                      | Primary Need                                           |
+| ---------------------------- | ------------------------------------------------------ |
 | **Everyday Developer**       | Quick access to snippets, prompts, commands, and links |
 | **AI-first Developer**       | Save and organize prompts, contexts, system messages   |
 | **Content Creator/Educator** | Store code blocks, explanations, and course notes      |
@@ -56,17 +56,17 @@ Developers keep their essentials scattered across too many tools:
 
 ## Tech Stack
 
-| Layer              | Technology                                                                 |
-| ------------------ | -------------------------------------------------------------------------- |
-| **Framework**      | [Next.js 16](https://nextjs.org/) / [React 19](https://react.dev/)        |
-| **Language**       | [TypeScript](https://www.typescriptlang.org/)                              |
-| **Database**       | [Neon PostgreSQL](https://neon.tech/) (serverless)                         |
-| **ORM**            | [Prisma 7](https://www.prisma.io/docs)                                     |
-| **Authentication** | [NextAuth v5 (Auth.js)](https://authjs.dev/)                               |
-| **File Storage**   | [Cloudflare R2](https://developers.cloudflare.com/r2/)                     |
-| **AI**             | [OpenAI gpt-5-nano](https://platform.openai.com/docs)                     |
+| Layer              | Technology                                                                        |
+| ------------------ | --------------------------------------------------------------------------------- |
+| **Framework**      | [Next.js 16](https://nextjs.org/) / [React 19](https://react.dev/)                |
+| **Language**       | [TypeScript](https://www.typescriptlang.org/)                                     |
+| **Database**       | [Neon PostgreSQL](https://neon.tech/) (serverless)                                |
+| **ORM**            | [Prisma 7](https://www.prisma.io/docs)                                            |
+| **Authentication** | [NextAuth v5 (Auth.js)](https://authjs.dev/)                                      |
+| **File Storage**   | [Cloudflare R2](https://developers.cloudflare.com/r2/)                            |
+| **AI**             | [OpenAI gpt-5-nano](https://platform.openai.com/docs)                             |
 | **Styling**        | [Tailwind CSS v4](https://tailwindcss.com/) + [shadcn/ui](https://ui.shadcn.com/) |
-| **Caching**        | Redis (future consideration)                                               |
+| **Caching**        | Redis (future consideration)                                                      |
 
 ### Key Conventions
 
@@ -349,12 +349,12 @@ Full-text search across item content, titles, tags, and types. Pro users get AI-
 
 ### E. AI Features (Pro Only)
 
-| Feature                | Description                                       |
-| ---------------------- | ------------------------------------------------- |
-| **AI Auto-tag**        | Suggests relevant tags based on item content       |
-| **AI Summaries**       | Generates concise summaries of long content         |
-| **AI Explain Code**    | Provides plain-English explanations of code blocks |
-| **Prompt Optimizer**   | Rewrites and improves AI prompts                    |
+| Feature              | Description                                        |
+| -------------------- | -------------------------------------------------- |
+| **AI Auto-tag**      | Suggests relevant tags based on item content       |
+| **AI Summaries**     | Generates concise summaries of long content        |
+| **AI Explain Code**  | Provides plain-English explanations of code blocks |
+| **Prompt Optimizer** | Rewrites and improves AI prompts                   |
 
 ---
 
@@ -362,28 +362,28 @@ Full-text search across item content, titles, tags, and types. Pro users get AI-
 
 System types ship with the app and cannot be deleted or renamed.
 
-| Type        | Content Type | Color                       | Lucide Icon   | Pro Only |
-| ----------- | ------------ | --------------------------- | ------------- | -------- |
-| `snippet`   | `text`       | `#3b82f6` (Blue)            | `Code`        | No       |
-| `prompt`    | `text`       | `#8b5cf6` (Purple)          | `Sparkles`    | No       |
-| `command`   | `text`       | `#f97316` (Orange)          | `Terminal`    | No       |
-| `note`      | `text`       | `#fde047` (Yellow)          | `StickyNote`  | No       |
-| `link`      | `url`        | `#10b981` (Emerald)         | `Link`        | No       |
-| `file`      | `file`       | `#6b7280` (Gray)            | `File`        | Yes      |
-| `image`     | `file`       | `#ec4899` (Pink)            | `Image`       | Yes      |
+| Type      | Content Type | Color               | Lucide Icon  | Pro Only |
+| --------- | ------------ | ------------------- | ------------ | -------- |
+| `snippet` | `text`       | `#3b82f6` (Blue)    | `Code`       | No       |
+| `prompt`  | `text`       | `#8b5cf6` (Purple)  | `Sparkles`   | No       |
+| `command` | `text`       | `#f97316` (Orange)  | `Terminal`   | No       |
+| `note`    | `text`       | `#fde047` (Yellow)  | `StickyNote` | No       |
+| `link`    | `url`        | `#10b981` (Emerald) | `Link`       | No       |
+| `file`    | `file`       | `#6b7280` (Gray)    | `File`       | Yes      |
+| `image`   | `file`       | `#ec4899` (Pink)    | `Image`      | Yes      |
 
 ### Seed Data
 
 ```ts
 // prisma/seed.ts
 const systemTypes = [
-  { name: "snippet",  icon: "Code",       color: "#3b82f6", isSystem: true },
-  { name: "prompt",   icon: "Sparkles",   color: "#8b5cf6", isSystem: true },
-  { name: "command",  icon: "Terminal",    color: "#f97316", isSystem: true },
-  { name: "note",     icon: "StickyNote",  color: "#fde047", isSystem: true },
-  { name: "link",     icon: "Link",        color: "#10b981", isSystem: true },
-  { name: "file",     icon: "File",        color: "#6b7280", isSystem: true },
-  { name: "image",    icon: "Image",       color: "#ec4899", isSystem: true },
+  { name: "snippet", icon: "Code", color: "#3b82f6", isSystem: true },
+  { name: "prompt", icon: "Sparkles", color: "#8b5cf6", isSystem: true },
+  { name: "command", icon: "Terminal", color: "#f97316", isSystem: true },
+  { name: "note", icon: "StickyNote", color: "#fde047", isSystem: true },
+  { name: "link", icon: "Link", color: "#10b981", isSystem: true },
+  { name: "file", icon: "File", color: "#6b7280", isSystem: true },
+  { name: "image", icon: "Image", color: "#ec4899", isSystem: true },
 ];
 ```
 
@@ -419,6 +419,13 @@ const systemTypes = [
 - Subtle borders and shadows — no heavy decoration
 - Syntax highlighting for all code blocks
 - **Design references:** Notion, Linear, Raycast
+
+### Screenshots
+
+Refer to the screenshots below as a base for the Dashboard UI. It does not have to be exact. Use it as a referecence;
+
+- @context/screenshots/dashboard-ui-drawer.png
+- @context/screenshots/dashboard-ui-main.png
 
 ### Layout
 
@@ -459,21 +466,21 @@ const systemTypes = [
 
 ### Plan Comparison
 
-| Feature                        | Free             | Pro ($8/mo · $72/yr) |
-| ------------------------------ | ---------------- | -------------------- |
-| Items                          | 50 total         | Unlimited            |
-| Collections                    | 3                | Unlimited            |
-| System types (text + url)      | ✓                | ✓                    |
-| File & Image types             | ✗                | ✓                    |
-| Custom types                   | ✗                | ✓ (future)           |
-| Basic search                   | ✓                | ✓                    |
-| File/Image uploads (R2)        | ✗                | ✓                    |
-| AI auto-tagging                | ✗                | ✓                    |
-| AI code explanation            | ✗                | ✓                    |
-| AI prompt optimizer            | ✗                | ✓                    |
-| AI summaries                   | ✗                | ✓                    |
-| Export (JSON/ZIP)              | ✗                | ✓                    |
-| Priority support               | ✗                | ✓                    |
+| Feature                   | Free     | Pro ($8/mo · $72/yr) |
+| ------------------------- | -------- | -------------------- |
+| Items                     | 50 total | Unlimited            |
+| Collections               | 3        | Unlimited            |
+| System types (text + url) | ✓        | ✓                    |
+| File & Image types        | ✗        | ✓                    |
+| Custom types              | ✗        | ✓ (future)           |
+| Basic search              | ✓        | ✓                    |
+| File/Image uploads (R2)   | ✗        | ✓                    |
+| AI auto-tagging           | ✗        | ✓                    |
+| AI code explanation       | ✗        | ✓                    |
+| AI prompt optimizer       | ✗        | ✓                    |
+| AI summaries              | ✗        | ✓                    |
+| Export (JSON/ZIP)         | ✗        | ✓                    |
+| Priority support          | ✗        | ✓                    |
 
 > **Dev note:** During development, all users have access to all features. Pro gating will be enforced before launch. The `isPro` flag and Stripe fields on the User model lay the foundation.
 
@@ -515,12 +522,12 @@ User → Sign In Page → Auth.js → Provider Check
 
 ### Feature Implementations
 
-| Feature              | Trigger                | Input                    | Output               |
-| -------------------- | ---------------------- | ------------------------ | --------------------- |
-| Auto-tag             | On item save           | Item title + content     | Array of tag strings   |
-| Summarize            | User action button     | Item content             | 2–3 sentence summary   |
-| Explain Code         | User action button     | Code snippet + language  | Plain-English breakdown |
-| Prompt Optimizer     | User action button     | Raw prompt text          | Improved prompt text    |
+| Feature          | Trigger            | Input                   | Output                  |
+| ---------------- | ------------------ | ----------------------- | ----------------------- |
+| Auto-tag         | On item save       | Item title + content    | Array of tag strings    |
+| Summarize        | User action button | Item content            | 2–3 sentence summary    |
+| Explain Code     | User action button | Code snippet + language | Plain-English breakdown |
+| Prompt Optimizer | User action button | Raw prompt text         | Improved prompt text    |
 
 All AI calls go through Next.js API routes to keep the OpenAI key server-side.
 
@@ -528,16 +535,16 @@ All AI calls go through Next.js API routes to keep the OpenAI key server-side.
 
 ## Key Links & Resources
 
-| Resource                   | URL                                                     |
-| -------------------------- | ------------------------------------------------------- |
-| Next.js 16 Docs            | https://nextjs.org/docs                                 |
-| React 19 Docs              | https://react.dev                                       |
-| Prisma 7 Docs              | https://www.prisma.io/docs                              |
-| Auth.js (NextAuth v5)      | https://authjs.dev                                      |
-| Neon PostgreSQL             | https://neon.tech/docs                                  |
-| Cloudflare R2              | https://developers.cloudflare.com/r2                    |
-| Tailwind CSS v4            | https://tailwindcss.com/docs                            |
-| shadcn/ui                  | https://ui.shadcn.com                                   |
-| OpenAI API                 | https://platform.openai.com/docs                        |
-| Stripe Billing             | https://docs.stripe.com/billing                         |
-| Lucide Icons               | https://lucide.dev/icons                                |
+| Resource              | URL                                  |
+| --------------------- | ------------------------------------ |
+| Next.js 16 Docs       | https://nextjs.org/docs              |
+| React 19 Docs         | https://react.dev                    |
+| Prisma 7 Docs         | https://www.prisma.io/docs           |
+| Auth.js (NextAuth v5) | https://authjs.dev                   |
+| Neon PostgreSQL       | https://neon.tech/docs               |
+| Cloudflare R2         | https://developers.cloudflare.com/r2 |
+| Tailwind CSS v4       | https://tailwindcss.com/docs         |
+| shadcn/ui             | https://ui.shadcn.com                |
+| OpenAI API            | https://platform.openai.com/docs     |
+| Stripe Billing        | https://docs.stripe.com/billing      |
+| Lucide Icons          | https://lucide.dev/icons             |
